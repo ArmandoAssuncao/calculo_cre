@@ -15,3 +15,8 @@ O servidor escuta requisições POST na porta 3001, os dados passados na requisi
 ```
 curl -X POST --data "username=999.999.999-99&pass=PASSWORD" localhost:3001/calculo_cre
 ```
+
+#### Calculo Utilizado
+![Calculo do CRE](/others/calculo.png)
+
+Obs: Disciplinas com **reprovação por falta** não são contabilizadas.
