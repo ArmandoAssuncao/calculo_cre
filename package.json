@@ -1,0 +1,25 @@
+{
+  "name": "calc_cre",
+  "version": "1.0.0",
+  "description": "Realiza o calculo do CRE utilizando as informações do sistema academico.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CRE",
+    "nodejs",
+    "calculo"
+  ],
+  "author": "Armando Assunção",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.3",
+    "express-load": "~1.1.15",
+    "body-parser": "~1.14.2",
+    "method-override": "~2.3.5",
+    "http": "0.0.0",
+    "request": "~2.72.0",
+    "cheerio": "~0.20.0"
+  }
+}
