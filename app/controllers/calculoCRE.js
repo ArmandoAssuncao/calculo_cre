@@ -20,7 +20,7 @@ module.exports = function(app){
 				res.status(401).json(resObj);
 			}
 			else{
-				resObj.valueCRE = calculaCRE(response.body);
+				resObj.value_cre = calculaCRE(response.body);
 				res.status(200).json(resObj);
 			}
 		});
