@@ -1,11 +1,12 @@
 var requestWeb = require('../resources/requestWeb');
+var constants = require('../resources/constants');
 var cheerio = require('cheerio');
 
 module.exports = function(app){
 	controller = {};
 
 	controller.calcCRE = function(req, res){
-		var url = 'https://academico.barbacena.ifsudestemg.edu.br/index.php?option=com_aixgen';
+		var url = constants.url.LOGIN;
 		var login = {
 			user: req.body.username,
 			pass: req.body.pass
@@ -61,8 +62,8 @@ function calculaCRE(bodyHtml){
 	//total workload
 	for(i = 0; i < arrayWorkload.length; i++){
 		if(
-			(arraySituation[i] != "Reprovado por Falta" && !useDissaprovedByFrequency)
-			|| (arraySituation[i] != "Reprovado por Nota" && !useDissaprovedByPoint)
+			(arraySituation[i] != constants.discipline.DISSAPROVED_BY_FREQUENCY && !useDissaprovedByFrequency)
+			|| (arraySituation[i] != constants.discipline.DISSAPROVED_BY_POINT && !useDissaprovedByPoint)
 			){
 			totalWorkload = totalWorkload + arrayWorkload[i];
 		}
@@ -71,8 +72,8 @@ function calculaCRE(bodyHtml){
 	//calculate cre
 	for(i = 0; i < arrayWorkload.length; i++){
 		if(
-			(arraySituation[i] != "Reprovado por Falta" && !useDissaprovedByFrequency)
-			|| (arraySituation[i] != "Reprovado por Nota" && !useDissaprovedByPoint)
+			(arraySituation[i] != constants.discipline.DISSAPROVED_BY_FREQUENCY && !useDissaprovedByFrequency)
+			|| (arraySituation[i] != constants.discipline.DISSAPROVED_BY_POINT && !useDissaprovedByPoint)
 			){
 			valueCRE = valueCRE + (arrayWorkload[i] / totalWorkload) * arrayGradePoint[i];
 		}
