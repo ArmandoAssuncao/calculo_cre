@@ -1,4 +1,5 @@
 var requestWeb = require('../resources/requestWeb');
+var DisciplineClass = require('../models/discipline');
 var constants = require('../resources/constants');
 var cheerio = require('cheerio');
 
@@ -38,46 +39,38 @@ function calculaCRE(bodyHtml){
 	};
 
 	var selectorHistoric = '.moduleConteudo tr[class^="trzebra"]';
-	var selectorWorkload = '.moduleConteudo tr[class^="trzebra"] > td:nth-child(5)';
-	var selectorGradePoint = '.moduleConteudo tr[class^="trzebra"] > td:nth-child(7)';
-	var selectorSituation = '.moduleConteudo tr[class^="trzebra"] > td:nth-child(8)';
 
 	var valueCRE = 0;
 	var totalWorkload = 0;
-	var useDissaprovedByPoint = true;
-	var useDissaprovedByFrequency = false;
+	var arrayDisciplines = [];
 
-	var arrayWorkload = $(selectorWorkload).map(function(i, item){
-		return parseFloat($(item).text().formatToNumber());
-	}).get();
+	$(selectorHistoric).each(function(){
+		var Discipline = new DisciplineClass();
+		Discipline.year = $(this).children('td:nth-child(1)').text();
+		Discipline.semester = $(this).children('td:nth-child(2)').text();
+		Discipline.grade = $(this).children('td:nth-child(3)').text();
+		Discipline.name = $(this).children('td:nth-child(4)').text();
+		Discipline.workload = parseFloat($(this).children('td:nth-child(5)').text().formatToNumber()) || 0;
+		Discipline.absence = $(this).children('td:nth-child(6)').text();
+		Discipline.finalMedia = parseFloat($(this).children('td:nth-child(7)').text().formatToNumber()) || 0;
+		Discipline.finalSituation = $(this).children('td:nth-child(8)').text().trim().toLowerCase();
+		arrayDisciplines.push(Discipline);
+	});
 
-	var arrayGradePoint = $(selectorGradePoint).map(function(i, item){
-		return parseFloat($(item).text().formatToNumber());
-	}).get();
-
-	var arraySituation = $(selectorSituation).map(function(i, item){
-		return $(item).text();
-	}).get();
-
-	//total workload
-	for(i = 0; i < arrayWorkload.length; i++){
-		if(
-			(arraySituation[i] != constants.discipline.DISSAPROVED_BY_FREQUENCY && !useDissaprovedByFrequency)
-			|| (arraySituation[i] != constants.discipline.DISSAPROVED_BY_POINT && !useDissaprovedByPoint)
-			){
-			totalWorkload = totalWorkload + arrayWorkload[i];
+	//delete disciplines with status in progress
+	for(i = 0; i < arrayDisciplines.length; i++){
+		if(arrayDisciplines.finalSituation == constants.discipline.IN_PROGRESS){
+			delete arrayDisciplines[i];
 		}
 	}
 
-	//calculate cre
-	for(i = 0; i < arrayWorkload.length; i++){
-		if(
-			(arraySituation[i] != constants.discipline.DISSAPROVED_BY_FREQUENCY && !useDissaprovedByFrequency)
-			|| (arraySituation[i] != constants.discipline.DISSAPROVED_BY_POINT && !useDissaprovedByPoint)
-			){
-			valueCRE = valueCRE + (arrayWorkload[i] / totalWorkload) * arrayGradePoint[i];
-		}
-	}
+	arrayDisciplines.forEach(function(element, index, array) {
+		totalWorkload += element.workload;
+	});
+
+	arrayDisciplines.forEach(function(element, index, array) {
+		valueCRE = valueCRE + ((element.workload / totalWorkload) * element.finalMedia);
+	});
 
 	return valueCRE;
 };
