@@ -19,4 +19,4 @@ curl -X POST --data "username=999.999.999-99&pass=PASSWORD" localhost:3001/calcu
 #### Calculo Utilizado
 ![Calculo do CRE](/others/calculo.png)
 
-Obs: Disciplinas com **reprovação por falta** não são contabilizadas.
+Obs: O calculo é feito com todas as disciplinas, independente de estarem aprovadas ou não.
