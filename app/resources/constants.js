@@ -8,6 +8,7 @@ module.exports = {
 		APROVED: "aprovado",
 		DISSAPROVED_BY_FREQUENCY: 'reprovado por falta',
 		DISSAPROVED_BY_POINT: 'reprovado por nota',
-		IN_PROGRESS: 'em curso'
+		IN_PROGRESS: 'em curso',
+		REGISTRATION_CANCELED: 'Matrícula cancelada'
 	},
 }
