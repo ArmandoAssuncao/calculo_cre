@@ -57,9 +57,13 @@ function calculaCRE(bodyHtml){
 		arrayDisciplines.push(Discipline);
 	});
 
-	//delete disciplines with status in progress
+	//deletes disciplines that do not enter the calculation
 	for(i = 0; i < arrayDisciplines.length; i++){
-		if(arrayDisciplines.finalSituation == constants.discipline.IN_PROGRESS){
+		if(arrayDisciplines[i].finalSituation != constants.discipline.APPROVED.toLowerCase()
+		&& arrayDisciplines[i].finalSituation != constants.discipline.DISSAPPROVED_BY_FREQUENCY.toLowerCase()
+		&& arrayDisciplines[i].finalSituation != constants.discipline.DISSAPPROVED_BY_POINT.toLowerCase()
+		){
+			console.error(arrayDisciplines[i].finalSituation);
 			delete arrayDisciplines[i];
 		}
 	}

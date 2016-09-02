@@ -5,9 +5,9 @@ module.exports = {
 	},
 
 	discipline: {
-		APROVED: "aprovado",
-		DISSAPROVED_BY_FREQUENCY: 'reprovado por falta',
-		DISSAPROVED_BY_POINT: 'reprovado por nota',
+		APPROVED: "Aprovado",
+		DISSAPPROVED_BY_FREQUENCY: 'reprovado por falta',
+		DISSAPPROVED_BY_POINT: 'reprovado por nota',
 		IN_PROGRESS: 'em curso',
 		REGISTRATION_CANCELED: 'Matrícula cancelada'
 	},
