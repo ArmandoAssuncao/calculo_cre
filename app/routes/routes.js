@@ -9,7 +9,7 @@ module.exports = function(app){
 
 // count access
 function counter_access(){
-	var PATH = '/home/nodejs/logs/calculo_cre_counter_access.log';
+	var PATH = '/home/logs/nodejs/calculo_cre/calculo_cre_counter_access.log';
 
 	semaphore.take(function(){
 		fs.readFile(PATH, function (err, data) {
