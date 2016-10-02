@@ -9,8 +9,10 @@ module.exports = function(app){
 
 // count access
 function counter_access(){
+	var PATH = '/home/nodejs/logs/calculo_cre_counter_access.log';
+
 	semaphore.take(function(){
-		fs.readFile('/home/nodejs/logs/calculo_cre_counter_access.log', function (err, data) {
+		fs.readFile(PATH, function (err, data) {
 			if (err) {
 				return console.error(err);
 			}
@@ -21,7 +23,7 @@ function counter_access(){
 				counter = 0;
 			}
 
-			fs.writeFile('/home/nodejs/logs/calculo_cre_counter_access.log', counter+1, function (err) {
+			fs.writeFile(PATH, counter+1, function (err) {
 				if (err) {
 					return console.error(err);
 				}
