@@ -19,7 +19,7 @@ module.exports = function(app){
 
 			if(response.error != 0){
 				resObj.error = response.error;
-				res.status(401).json(resObj);
+				res.status(200).json(resObj);
 			}
 			else{
 				resObj.value_cre = calculaCRE(response.body);
