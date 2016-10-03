@@ -40,10 +40,7 @@ function calculaCRE(bodyHtml){
 
 	var selectorHistoric = '.moduleConteudo tr[class^="trzebra"]';
 
-	var valueCRE = 0;
-	var totalWorkload = 0;
 	var arrayDisciplines = [];
-
 	$(selectorHistoric).each(function(){
 		var Discipline = new DisciplineClass();
 		Discipline.year = $(this).children('td:nth-child(1)').text();
@@ -68,13 +65,38 @@ function calculaCRE(bodyHtml){
 		}
 	}
 
-	arrayDisciplines.forEach(function(element, index, array) {
-		totalWorkload += element.workload;
-	});
-
-	arrayDisciplines.forEach(function(element, index, array) {
-		valueCRE = valueCRE + ((element.workload / totalWorkload) * element.finalMedia);
-	});
+	var valueCRE = calcMode2(arrayDisciplines);
 
 	return valueCRE;
 };
+
+function calcMode1(arrayDisciplines){
+	var cre = 0;
+	var totalWorkload = 0;
+
+	arrayDisciplines.forEach(function(element, index, array) {
+		totalWorkload += element.workload;
+	});
+	arrayDisciplines.forEach(function(element, index, array) {
+		cre = cre + ((element.workload / totalWorkload) * element.finalMedia);
+	});
+
+	return cre;
+}
+
+function calcMode2(arrayDisciplines){
+	var cre = 0;
+	var totalWorkload = 0;
+	var somatory = 0;
+
+	arrayDisciplines.forEach(function(element, index, array) {
+		totalWorkload += element.workload;
+	});
+	arrayDisciplines.forEach(function(element, index, array) {
+		somatory = somatory + (element.workload * element.finalMedia);
+	});
+
+	cre = somatory / totalWorkload;
+	return cre;
+}
+
