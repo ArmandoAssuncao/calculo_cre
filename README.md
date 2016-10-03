@@ -17,6 +17,8 @@ curl -X POST --data "username=999.999.999-99&pass=PASSWORD" localhost:8124/calcu
 ```
 
 #### Calculo Utilizado
-![Calculo do CRE](/others/calculo.png)
+<p>
+    <img width="300px" src="others/formula-02.png?raw=true" alt="Formula"/>
+</p>
 
 Obs: O calculo é feito com todas as disciplinas, independente de estarem aprovadas ou não.
