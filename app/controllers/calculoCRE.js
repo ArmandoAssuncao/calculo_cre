@@ -10,7 +10,8 @@ module.exports = function(app){
 		var url = constants.url.LOGIN;
 		var login = {
 			user: req.body.username,
-			pass: req.body.pass
+			pass: req.body.pass,
+			institute: req.body.institute == 'superior' ? 1 : 0
 		}
 
 		requestWeb.get(url, login, function(response){

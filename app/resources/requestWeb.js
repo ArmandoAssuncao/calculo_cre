@@ -8,7 +8,7 @@ module.exports = {
             userType: 'A',
             username: login.user,
             passwd: login.pass,
-            instituicao: '1',
+            instituicao: login.institute,
             Turing: ''
         };
 
