@@ -10,10 +10,10 @@ Servidor feito em NodeJS que faz o calculo do **coeficiente de rendimento escola
  - cheerio
 
 #### Como funciona
-O servidor escuta requisições POST na porta 8124, os dados passados na requisição são os números de CPF e a senha do usuário do sistema acadêmico.
+O servidor escuta requisições POST na porta 8124, os dados passados na requisição são os números de CPF, senha e a instituição(tecnico | superior) do usuário do sistema acadêmico.
 
 ```
-curl -X POST --data "username=999.999.999-99&pass=PASSWORD" localhost:8124/calculo_cre
+curl -X POST --data "username=999.999.999-99&pass=PASSWORD&institute=superior" localhost:8124/calculo_cre
 ```
 
 #### Calculo Utilizado

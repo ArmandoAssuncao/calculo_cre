@@ -11,8 +11,10 @@ module.exports = function(app){
 		var login = {
 			user: req.body.username,
 			pass: req.body.pass,
-			institute: req.body.institute == 'superior' ? 1 : 0
+			institute: req.body.institute == 'superior' ? 1 : req.body.institute == 'tecnico' ? 0 : 1
 		}
+
+		console.log(login);
 
 		requestWeb.get(url, login, function(response){
 			resObj = {};
