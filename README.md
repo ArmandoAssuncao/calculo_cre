@@ -1,4 +1,4 @@
-# Calculo CRE
+# [Calculo CRE](http://armandoassuncao.github.io/calculo_cre)
 ---
 Servidor feito em NodeJS que faz o calculo do **coeficiente de rendimento escolar**. Os valores para realizar o calculo são pegos diretamente do sistema acadêmico do IFSEMG - Campus Barbacena.
 
