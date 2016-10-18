@@ -21,4 +21,6 @@ curl -X POST --data "username=999.999.999-99&pass=PASSWORD&institute=superior" l
     <img width="300px" src="others/formula-02.png?raw=true" alt="Formula"/>
 </p>
 
-Obs: O calculo é feito com todas as disciplinas terminadas, independente de estarem aprovadas ou não.
+Obs:
+- O calculo é feito com todas as disciplinas terminadas, independente de estarem aprovadas ou não.
+- Esse calculo não possui valor oficial.
