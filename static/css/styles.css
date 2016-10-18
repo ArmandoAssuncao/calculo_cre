@@ -197,7 +197,8 @@ footer {
 
 @media screen and (max-height: 500px) {
     .container-second-screen {
-        height: 500px;
+        height: initial;
+        min-height: 91vh;
     }
 
     ._height_container {
@@ -235,8 +236,8 @@ footer {
     }
 
     .container-second-screen {
-        height: 91vh;
-        min-height: 400px;
+        height: initial;
+        min-height: 91vh;
     }
 
     .container-formula {
