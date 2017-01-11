@@ -1,3 +1,7 @@
+'use strict';
+
+global.appRoot = __dirname;
+
 var http = require('http');
 var request = require('request');
 var app = require('./config/express')();

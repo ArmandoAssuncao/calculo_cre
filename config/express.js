@@ -19,7 +19,7 @@ module.exports = function(){
     app.use(methodOverride());
     app.use(allowCrossDomain);
 
-    expressLoad('controllers', {cwd: 'app'})
+    expressLoad('controllers', {cwd: appRoot + '/app'})
     .then('routes')
     .into(app);
 
