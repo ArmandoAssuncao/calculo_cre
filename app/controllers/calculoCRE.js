@@ -14,8 +14,6 @@ module.exports = function(app){
 			institute: req.body.institute == 'superior' ? 1 : req.body.institute == 'tecnico' ? 0 : 1
 		}
 
-		console.log(login);
-
 		requestWeb.get(url, login, function(response){
 			resObj = {};
 			resObj.error = 0;
