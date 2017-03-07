@@ -6,9 +6,9 @@ module.exports = {
         var form = {
             task: 'loginauth',
             userType: 'A',
-            username: login.user,
-            passwd: login.pass,
-            instituicao: login.institute,
+            username: encodeURIComponent(login.user),
+            passwd: encodeURIComponent(login.pass),
+            instituicao: encodeURIComponent(login.institute),
             Turing: ''
         };
 
