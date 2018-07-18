@@ -1,1 +1,4 @@
 node_modules/
+logs/
+package-lock.json
+yarn-error.log
