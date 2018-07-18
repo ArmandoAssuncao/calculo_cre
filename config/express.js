@@ -5,7 +5,8 @@ var methodOverride = require('method-override');
 
 module.exports = function(){
     var app = express();
-    app.set('port', 8124);
+    var PORT = process.env.PORT || 8124;
+    app.set('port', PORT);
 
     var allowCrossDomain = function(req, res, next) {
         res.header('Access-Control-Allow-Origin', "*");
