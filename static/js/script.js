@@ -1,12 +1,7 @@
 'use strict';
 
-const IP = ['162.', '243.', '119.', '96'];
-const PORT = '8124';
-
-const ip_port = IP[0]+IP[1]+IP[2]+IP[3] +':'+ PORT;
-//const ip_port = 'localhost:' + PORT;
-
-const URL = 'http://'+ ip_port +'/calculo_cre';
+const HOST = ['calculocre.', 'apps.', 'blacktable.', 'online'];
+const URL = 'http://' + HOST.join('') + '/calculo_cre';
 
 var XMLHttpFactories = [
     function () {return new XMLHttpRequest()},
